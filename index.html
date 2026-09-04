@@ -19,17 +19,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- 3D Ambient Glowing Environment -->
   <div class="background-glow bg-glow-1"></div>
   <div class="background-glow bg-glow-2"></div>
   <div class="background-glow bg-glow-3"></div>
 
-  <main class="page-container">
-    <!-- Header Section with Official Logo -->
+  <!-- 3D Floating Chemistry Molecules -->
+  <div class="molecule-3d mol-1">⬡</div>
+  <div class="molecule-3d mol-2">⚛️</div>
+  <div class="molecule-3d mol-3">⚗️</div>
+  <div class="molecule-3d mol-4">⌬</div>
+  <div class="molecule-3d mol-5">🧪</div>
+
+  <main class="page-container" id="pageContainer">
+    <!-- Header Section with Official Logo & Website Link -->
     <header class="form-header">
-      <div class="brand-logo-container">
-        <div class="logo-glow-ring"></div>
-        <img src="assets/drchem-logo.jpg" alt="Dr. Chem Official Logo" class="brand-logo-img">
+      <div class="brand-header-row">
+        <div class="brand-logo-container">
+          <div class="logo-glow-ring"></div>
+          <img src="assets/drchem-logo.jpg" alt="Dr. Chem Official Logo" class="brand-logo-img">
+        </div>
+        
+        <a href="https://drchemedu.com" target="_blank" rel="noopener noreferrer" class="domain-pill-link" title="Visit Official Website: drchemedu.com">
+          <span class="domain-pulse-dot"></span>
+          <span class="domain-globe">🌐</span>
+          <span class="domain-text">drchemedu.com</span>
+          <svg class="domain-external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
       </div>
+
       <div class="brand-badge">
         <span class="badge-dot"></span>
         <span class="badge-text">Dr. Chem Special Chemistry Seminar</span>
@@ -53,6 +75,31 @@
 
     <!-- Form Container -->
     <div class="form-card" id="formCard">
+      <div class="card-glare"></div>
+
+      <!-- 3D Chemical Liquid Form Progress Tracker -->
+      <div class="liquid-progress-container">
+        <div class="liquid-progress-header">
+          <div class="liquid-logo-bubble">
+            <img src="assets/drchem-logo.jpg" alt="Dr. Chem Mini" class="mini-liquid-logo">
+            <span class="liquid-bubble-bubble"></span>
+          </div>
+          <div class="liquid-progress-info">
+            <span class="progress-title">🧪 রেজিস্ট্রেশন অগ্রগতি:</span>
+            <span class="progress-percent" id="progressPercent">০% সম্পন্ন</span>
+          </div>
+        </div>
+        <div class="liquid-tube-bar">
+          <div class="liquid-fluid" id="liquidFluid">
+            <div class="liquid-wave-1"></div>
+            <div class="liquid-wave-2"></div>
+            <div class="liquid-bubbles">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <form id="drChemForm" novalidate>
         
         <!-- Field 1: Full Name -->
@@ -222,6 +269,7 @@
 
     <!-- Success Confirmation State (Hidden by default) -->
     <div class="confirmation-card hidden" id="confirmationCard">
+      <div class="card-glare"></div>
       <div class="success-icon-wrapper">
         <div class="success-icon-circle">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00E5A3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -261,9 +309,22 @@
       <button type="button" id="resetBtn" class="reset-link-btn">অন্য কারও জন্য নতুন রেজিস্ট্রেশন করো</button>
     </div>
 
+    <!-- Floating 3D Liquid Beaker Companion (Floats along as user fills form) -->
+    <div class="floating-liquid-companion" id="floatingLiquidCompanion">
+      <div class="companion-beaker-wrapper">
+        <div class="companion-liquid-level" id="companionLiquidLevel"></div>
+        <img src="assets/drchem-logo.jpg" alt="Dr. Chem Floating" class="companion-logo-img">
+        <div class="companion-glow-ring"></div>
+      </div>
+      <div class="companion-pill">
+        <span class="companion-dot"></span>
+        <span class="companion-text" id="companionText">০% পূর্ণ</span>
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer class="page-footer">
-      <p>© 2026 Dr. Chem. সর্বস্বত্ব সংরক্ষিত।</p>
+      <p>© 2026 Dr. Chem. সর্বস্বত্ব সংরক্ষিত। | <a href="https://drchemedu.com" target="_blank" rel="noopener noreferrer" class="footer-site-link">drchemedu.com</a></p>
     </footer>
   </main>
 

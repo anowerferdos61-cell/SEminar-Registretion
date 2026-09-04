@@ -28,22 +28,57 @@ document.addEventListener('DOMContentLoaded', () => {
   const institutionInput = document.getElementById('institution');
   const batchInputs = document.querySelectorAll('input[name="batch"]');
 
+  // Liquid Progress Elements
+  const liquidFluid = document.getElementById('liquidFluid');
+  const progressPercent = document.getElementById('progressPercent');
+  const companionText = document.getElementById('companionText');
+
+  function toBanglaDigits(num) {
+    const banglaNums = {'0':'০','1':'১','2':'২','3':'৩','4':'৪','5':'৫','6':'৬','7':'৭','8':'৮','9':'৯'};
+    return String(num).replace(/[0-9]/g, match => banglaNums[match] || match);
+  }
+
+  function updateLiquidProgress() {
+    let completedCount = 0;
+    if (fullNameInput.value.trim().length >= 3) completedCount++;
+    if (validatePhone(phoneInput.value)) completedCount++;
+    if (validateEmail(emailInput.value)) completedCount++;
+    if (institutionInput.value.trim().length > 0) completedCount++;
+    if (document.querySelector('input[name="batch"]:checked')) completedCount++;
+
+    const percent = completedCount * 20; // 0, 20, 40, 60, 80, 100%
+    if (liquidFluid) liquidFluid.style.width = `${percent}%`;
+    if (progressPercent) progressPercent.textContent = `${toBanglaDigits(percent)}% সম্পন্ন`;
+    if (companionText) companionText.textContent = `${toBanglaDigits(percent)}% পূর্ণ`;
+  }
+
   // Phone input formatting - only allow digits
   phoneInput.addEventListener('input', (e) => {
     e.target.value = e.target.value.replace(/\D/g, '').slice(0, 11);
     validateField(phoneInput, validatePhone);
+    updateLiquidProgress();
   });
 
   // Real-time input listeners
-  fullNameInput.addEventListener('input', () => validateField(fullNameInput, (val) => val.trim().length >= 3));
-  emailInput.addEventListener('input', () => validateField(emailInput, validateEmail));
-  institutionInput.addEventListener('input', () => validateField(institutionInput, (val) => val.trim().length > 0));
+  fullNameInput.addEventListener('input', () => {
+    validateField(fullNameInput, (val) => val.trim().length >= 3);
+    updateLiquidProgress();
+  });
+  emailInput.addEventListener('input', () => {
+    validateField(emailInput, validateEmail);
+    updateLiquidProgress();
+  });
+  institutionInput.addEventListener('input', () => {
+    validateField(institutionInput, (val) => val.trim().length > 0);
+    updateLiquidProgress();
+  });
 
   batchInputs.forEach(radio => {
     radio.addEventListener('change', () => {
       document.getElementById('group-batch').classList.remove('has-error');
       document.querySelectorAll('.radio-card').forEach(card => card.classList.remove('selected'));
       radio.closest('.radio-card').classList.add('selected');
+      updateLiquidProgress();
     });
   });
 
@@ -205,9 +240,59 @@ document.addEventListener('DOMContentLoaded', () => {
       group.classList.remove('has-error', 'is-valid');
     });
     document.querySelectorAll('.radio-card').forEach(card => card.classList.remove('selected'));
+    updateLiquidProgress();
     
     confirmationCard.classList.add('hidden');
     formCard.classList.remove('hidden');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // =========================================================================
+  // 3D Tilt & Parallax Physics Engine
+  // =========================================================================
+  const tiltCards = [formCard, confirmationCard];
+
+  tiltCards.forEach(card => {
+    if (!card) return;
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left; // x position within the card
+      const y = e.clientY - rect.top;  // y position within the card
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      // Calculate 3D tilt angles (max +/- 6 degrees for subtle realistic feel)
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
+
+      card.style.transform = `perspective(1200px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.01, 1.01, 1.01)`;
+
+      // Dynamic light glare follow
+      card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+      card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      // Smoothly reset back to flat
+      card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      card.style.setProperty('--mouse-x', '50%');
+      card.style.setProperty('--mouse-y', '50%');
+    });
+  });
+
+  // 3D Parallax on background molecules based on mouse movement
+  window.addEventListener('mousemove', (e) => {
+    const mouseXRatio = (e.clientX / window.innerWidth) - 0.5;
+    const mouseYRatio = (e.clientY / window.innerHeight) - 0.5;
+
+    document.querySelectorAll('.molecule-3d').forEach((mol, index) => {
+      const factor = (index + 1) * 15;
+      const moveX = mouseXRatio * factor;
+      const moveY = mouseYRatio * factor;
+      mol.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+    });
+  });
 });
+
