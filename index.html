@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DrChem রেজিস্ট্রেশন ফর্ম</title>
+  <meta name="description" content="স্বাগতম DrChem-এ! রসায়নের সেরা প্রস্তুতির জন্য এখনই রেজিস্ট্রেশন সম্পন্ন করো। ক্লাস লিংক ও আপডেট সরাসরি WhatsApp এবং জিমেইলে পাবে।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-glow bg-glow-1"></div>
+  <div class="background-glow bg-glow-2"></div>
+  <div class="background-glow bg-glow-3"></div>
+
+  <main class="page-container">
+    <!-- Header Section -->
+    <header class="form-header">
+      <div class="brand-badge">
+        <span class="badge-icon">⚗️</span>
+        <span class="badge-text">DrChem Special Batch</span>
+      </div>
+      <h1 class="main-title">DrChem রেজিস্ট্রেশন ফর্ম</h1>
+      <p class="subtitle">রসায়নের সহজ পাঠশালায় তোমাকে স্বাগতম! 🎉</p>
+      
+      <div class="info-alert-card">
+        <div class="alert-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <div class="alert-content">
+          <p><strong>জরুরি নির্দেশনা:</strong> লাইভ ক্লাস লিংক, শিডিউল ও স্পেশাল লেকচার শিট তোমার দেওয়া <strong>WhatsApp</strong> এবং <strong>Gmail</strong>-এ পাঠানো হবে। তাই সচল ও সঠিক তথ্য প্রদান করো।</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Form Container -->
+    <div class="form-card" id="formCard">
+      <form id="drChemForm" novalidate>
+        
+        <!-- Field 1: Full Name -->
+        <div class="form-group" id="group-fullName">
+          <label for="fullName" class="field-label">
+            <span>১. শিক্ষার্থীর পূর্ণ নাম (Full Name)</span>
+            <span class="required-star">*</span>
+          </label>
+          <div class="input-wrapper">
+            <span class="input-icon">👤</span>
+            <input 
+              type="text" 
+              id="fullName" 
+              name="fullName" 
+              class="form-input" 
+              placeholder="যেমন: তানভীর আহমেদ" 
+              required
+              autocomplete="name"
+            >
+          </div>
+          <span class="error-msg" id="error-fullName">অনুগ্রহ করে তোমার পূর্ণ নাম লিখো (নূন্যতম ৩ অক্ষর)।</span>
+        </div>
+
+        <!-- Field 2: WhatsApp / Mobile Number -->
+        <div class="form-group" id="group-phone">
+          <label for="phone" class="field-label">
+            <span>২. সচল মোবাইল / WhatsApp নম্বর</span>
+            <span class="required-star">*</span>
+          </label>
+          <div class="input-wrapper">
+            <span class="input-prefix">🇧🇩 +88</span>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              class="form-input has-prefix" 
+              placeholder="01XXXXXXXXX (১১ ডিজিট)" 
+              inputmode="numeric"
+              maxlength="11"
+              required
+              autocomplete="tel"
+            >
+          </div>
+          <span class="field-hint">📌 এই নম্বরে ক্লাস লিংক ও WhatsApp আপডেট পাঠানো হবে।</span>
+          <span class="error-msg" id="error-phone">সঠিক ১১ ডিজিটের বাংলাদেশি নম্বর দিন (যেমন: 017XXXXXXXX বা 018XXXXXXXX)।</span>
+        </div>
+
+        <!-- Field 3: Gmail / Email Address -->
+        <div class="form-group" id="group-email">
+          <label for="email" class="field-label">
+            <span>৩. সচল জিমেইল / ইমেইল অ্যাড্রেস</span>
+            <span class="required-star">*</span>
+          </label>
+          <div class="input-wrapper">
+            <span class="input-icon">✉️</span>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              class="form-input" 
+              placeholder="যেমন: tanvir.chem@gmail.com" 
+              required
+              autocomplete="email"
+            >
+          </div>
+          <span class="field-hint">📌 স্টাডি ম্যাটেরিয়ালস ও পিডিএফ ড্রাইভ অ্যাক্সেস এই ইমেইলে দেওয়া হবে।</span>
+          <span class="error-msg" id="error-email">সঠিক ইমেইল অ্যাড্রেস লিখুন (যেমন: name@gmail.com)।</span>
+        </div>
+
+        <!-- Field 4: School / College Name -->
+        <div class="form-group" id="group-institution">
+          <label for="institution" class="field-label">
+            <span>৪. স্কুল / কলেজের নাম (School / College Name)</span>
+            <span class="required-star">*</span>
+          </label>
+          <div class="input-wrapper">
+            <span class="input-icon">🏫</span>
+            <input 
+              type="text" 
+              id="institution" 
+              name="institution" 
+              class="form-input" 
+              placeholder="যেমন: নটর ডেম কলেজ / ভিকারুননিসা নূন স্কুল" 
+              required
+            >
+          </div>
+          <span class="error-msg" id="error-institution">অনুগ্রহ করে তোমার শিক্ষা প্রতিষ্ঠানের নাম লিখো।</span>
+        </div>
+
+        <!-- Field 5: Class / Target Batch -->
+        <div class="form-group" id="group-batch">
+          <label class="field-label">
+            <span>৫. ক্লাস / টার্গেট ব্যাচ নির্বাচন করো</span>
+            <span class="required-star">*</span>
+          </label>
+          
+          <div class="radio-options-grid">
+            <label class="radio-card">
+              <input type="radio" name="batch" value="Class 9" required>
+              <div class="radio-custom">
+                <span class="radio-dot"></span>
+              </div>
+              <div class="radio-label-group">
+                <span class="batch-title">Class 9</span>
+                <span class="batch-subtitle">৯ম শ্রেণি</span>
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="batch" value="Class 10" required>
+              <div class="radio-custom">
+                <span class="radio-dot"></span>
+              </div>
+              <div class="radio-label-group">
+                <span class="batch-title">Class 10 / SSC</span>
+                <span class="batch-subtitle">১০ম শ্রেণি ও এসএসসি পরীক্ষার্থী</span>
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="batch" value="HSC 1st YEAR" required>
+              <div class="radio-custom">
+                <span class="radio-dot"></span>
+              </div>
+              <div class="radio-label-group">
+                <span class="batch-title">HSC 1st Year</span>
+                <span class="batch-subtitle">একাদশ শ্রেণি</span>
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="batch" value="HSC 2nd YEAR" required>
+              <div class="radio-custom">
+                <span class="radio-dot"></span>
+              </div>
+              <div class="radio-label-group">
+                <span class="batch-title">HSC 2nd Year / Candidate</span>
+                <span class="batch-subtitle">দ্বাদশ শ্রেণি ও এইচএসসি পরীক্ষার্থী</span>
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="batch" value="Other" required>
+              <div class="radio-custom">
+                <span class="radio-dot"></span>
+              </div>
+              <div class="radio-label-group">
+                <span class="batch-title">Other (অন্যান্য)</span>
+                <span class="batch-subtitle">অন্যান্য যেকোনো ব্যাচ</span>
+              </div>
+            </label>
+          </div>
+          <span class="error-msg" id="error-batch">একটি ব্যাচ নির্বাচন করুন।</span>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-submit-container">
+          <button type="submit" id="submitBtn" class="submit-button">
+            <span class="btn-text">রেজিস্ট্রেশন নিশ্চিত করো</span>
+            <span class="btn-icon">➔</span>
+            <span class="btn-spinner hidden"></span>
+          </button>
+          <p class="security-note">🔒 তোমার তথ্য DrChem-এ ১০০% সুরক্ষিত থাকবে।</p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Success Confirmation State (Hidden by default) -->
+    <div class="confirmation-card hidden" id="confirmationCard">
+      <div class="success-icon-wrapper">
+        <div class="success-icon-circle">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00E5A3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+      </div>
+      
+      <h2 class="success-title">অভিনন্দন! রেজিস্ট্রেশন সফল হয়েছে 🎉</h2>
+      <p class="success-subtitle">ধন্যবাদ <strong>DrChem</strong>-এর সাথে যুক্ত হওয়ার জন্য। তোমার দেওয়া তথ্য আমাদের কাছে পৌঁছে গেছে।</p>
+
+      <div class="submission-summary-box" id="summaryBox">
+        <!-- Injected via JS -->
+      </div>
+
+      <div class="action-steps-card">
+        <h3 class="steps-title">📲 পরবর্তী করণীয়:</h3>
+        <ul class="steps-list">
+          <li>
+            <span class="step-num">১</span>
+            <span>আমাদের অফিসিয়াল প্রতিনিধি দ্রুত তোমার সাথে যোগাযোগ করবেন এবং <strong>WhatsApp</strong>-এ ক্লাসের বিস্তারিত লিংক পাঠাবেন।</span>
+          </li>
+          <li>
+            <span class="step-num">২</span>
+            <span>নিয়মিত আপডেট ও ড্রাইভ লিংক পেতে তোমার <strong>Gmail</strong>-এর ইনবক্স এবং স্প্যাম ফোল্ডার খেয়াল রাখো।</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="whatsapp-action-box">
+        <a href="https://chat.whatsapp.com/DpZ5y0GFs0u9KtOL6Xsmtv?mode=gi_t" target="_blank" rel="noopener noreferrer" class="whatsapp-direct-btn">
+          <span class="wa-icon">💬</span>
+          <span>সরাসরি স্টুডেন্ট WhatsApp গ্রুপে যুক্ত হও</span>
+        </a>
+      </div>
+
+      <button type="button" id="resetBtn" class="reset-link-btn">অন্য কারও জন্য নতুন ফর্ম পূরণ করো</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <p>© 2026 DrChem Academy. সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
