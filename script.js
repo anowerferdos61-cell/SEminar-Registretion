@@ -221,7 +221,12 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
 
-    // Transition to confirmation screen
+    // Transition to confirmation screen (Hide form-header so only confirmation & WhatsApp CTA are visible)
+    const formHeader = document.querySelector('.form-header');
+    const companion = document.getElementById('floatingLiquidCompanion');
+    if (formHeader) formHeader.classList.add('hidden');
+    if (companion) companion.classList.add('hidden');
+
     formCard.classList.add('hidden');
     confirmationCard.classList.remove('hidden');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -242,6 +247,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.radio-card').forEach(card => card.classList.remove('selected'));
     updateLiquidProgress();
     
+    const formHeader = document.querySelector('.form-header');
+    const companion = document.getElementById('floatingLiquidCompanion');
+    if (formHeader) formHeader.classList.remove('hidden');
+    if (companion) companion.classList.remove('hidden');
+
     confirmationCard.classList.add('hidden');
     formCard.classList.remove('hidden');
     window.scrollTo({ top: 0, behavior: 'smooth' });

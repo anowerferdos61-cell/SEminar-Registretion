@@ -653,6 +653,37 @@ body {
 }
 
 @media (max-width: 480px) {
+  .page-container {
+    gap: 16px;
+    padding: 0 4px;
+  }
+  .form-card, .confirmation-card {
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+  .success-icon-circle {
+    width: 62px;
+    height: 62px;
+  }
+  .success-title {
+    font-size: 1.45rem;
+  }
+  .success-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+  .whatsapp-hero-card {
+    padding: 16px 14px;
+    margin-bottom: 16px;
+  }
+  .wa-hero-title {
+    font-size: 1.02rem;
+  }
+  .whatsapp-direct-btn {
+    height: 52px;
+    font-size: 0.98rem;
+    gap: 8px;
+  }
   .floating-liquid-companion {
     bottom: 16px;
     right: 16px;
@@ -1113,30 +1144,142 @@ body {
   margin-top: 1px;
 }
 
+/* WhatsApp Priority Hero Card (Top of Confirmation) */
+.whatsapp-hero-card {
+  background: linear-gradient(145deg, rgba(240, 253, 244, 0.95) 0%, rgba(220, 252, 231, 0.88) 100%);
+  border: 2px solid rgba(16, 185, 129, 0.5);
+  border-radius: 20px;
+  padding: 22px 18px;
+  margin-bottom: 22px;
+  box-shadow: 
+    0 12px 28px rgba(16, 185, 129, 0.16),
+    0 0 25px rgba(37, 211, 102, 0.15),
+    inset 0 1px 2px #FFFFFF;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: heroPulseGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes heroPulseGlow {
+  0% {
+    border-color: rgba(16, 185, 129, 0.45);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.14), inset 0 1px 2px #FFFFFF;
+  }
+  100% {
+    border-color: rgba(16, 185, 129, 0.75);
+    box-shadow: 0 12px 32px rgba(16, 185, 129, 0.25), 0 0 22px rgba(37, 211, 102, 0.28), inset 0 1px 2px #FFFFFF;
+  }
+}
+
+.wa-badge-alert {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #DCFCE7;
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  color: #065F46;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+}
+
+.wa-badge-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 10px #10B981;
+  animation: pulseDot 1.5s infinite;
+}
+
+.wa-hero-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #064E3B;
+  line-height: 1.45;
+  margin-bottom: 6px;
+}
+
+.wa-hero-desc {
+  font-size: 0.92rem;
+  color: #047857;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
 .whatsapp-direct-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   width: 100%;
-  height: 56px;
+  height: 58px;
   background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 14px;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
   color: #FFFFFF;
   text-decoration: none;
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   box-shadow: 
-    0 8px 22px rgba(37, 211, 102, 0.35),
-    inset 0 1px 2px rgba(255, 255, 255, 0.5);
-  transition: var(--transition-smooth);
+    0 8px 24px rgba(37, 211, 102, 0.38),
+    0 4px 0 #0D695D,
+    inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.whatsapp-pulse-btn {
+  animation: waPulseBtn 2.2s ease-in-out infinite;
+}
+
+@keyframes waPulseBtn {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.38), 0 4px 0 #0D695D;
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 14px 32px rgba(37, 211, 102, 0.55), 0 4px 0 #0D695D, 0 0 20px rgba(37, 211, 102, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.38), 0 4px 0 #0D695D;
+  }
 }
 
 .whatsapp-direct-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.48);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 32px rgba(37, 211, 102, 0.5), 0 6px 0 #0D695D;
   filter: brightness(1.05);
+}
+
+.whatsapp-direct-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3), 0 2px 0 #0D695D;
+}
+
+.wa-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wa-btn-arrow {
+  font-size: 1.15rem;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-direct-btn:hover .wa-btn-arrow {
+  transform: translateX(4px);
 }
 
 .reset-link-btn {
