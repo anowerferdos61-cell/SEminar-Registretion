@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Reset button state
     submitBtn.disabled = false;
-    btnText.textContent = 'রেজিস্ট্রেশন নিশ্চিত করো';
+    btnText.textContent = 'সেমিনারে আসন নিশ্চিত করো';
     btnIcon.classList.remove('hidden');
     btnSpinner.classList.add('hidden');
   });
